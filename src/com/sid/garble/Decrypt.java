@@ -17,7 +17,7 @@ public class Decrypt {
 
 	public static void FileDecryption(@NotNull JTextField input, JTextArea output) {
 		decryptedValue = new String(getDecoder().decode(input.getText()));
-		Main.write("decrypted.txt", Main.currentDateTime + decryptedValue);
+		Main.write("garble-decrypt.txt", Main.currentDateTime + decryptedValue);
 		output.append("Decrypted!\n");
 	}
 }

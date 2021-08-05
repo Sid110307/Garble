@@ -18,7 +18,7 @@ public class Encrypt {
 
 	public static void FileEncryption(@NotNull JTextField input, JTextArea output) {
 		encryptedValue = getEncoder().encodeToString(input.getText().getBytes());
-		Main.write("encrypted.txt", Main.currentDateTime + encryptedValue);
+		Main.write("garble-encrypt.txt", Main.currentDateTime + encryptedValue);
 		output.append("Encrypted!\n");
 	}
 }
