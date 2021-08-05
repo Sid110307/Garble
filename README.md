@@ -1,7 +1,9 @@
 # Garble
+
 > A tool for encrypting and decrypting text and files
 
 ## Release notes:
+
 `v0.8`   - Redesigned GUI and modified credits screen.
 
 `v0.7`   - Date and Time for Encrypted/Decrypted data.
