@@ -49,7 +49,7 @@
             <properties>
               <background color="-10918"/>
               <font name="Comic Sans MS"/>
-              <foreground color="-6645094"/>
+              <foreground color="-14475229"/>
               <text value="Encrypt Text"/>
             </properties>
           </component>
@@ -60,7 +60,7 @@
             <properties>
               <background color="-10918"/>
               <font name="Comic Sans MS"/>
-              <foreground color="-6645094"/>
+              <foreground color="-14475229"/>
               <text value="Decrypt Text"/>
             </properties>
           </component>
@@ -81,7 +81,7 @@
             <properties>
               <background color="-10918"/>
               <font name="Comic Sans MS"/>
-              <foreground color="-6645094"/>
+              <foreground color="-14475229"/>
               <text value="&amp;Encrypt to File"/>
             </properties>
           </component>
@@ -92,7 +92,7 @@
             <properties>
               <background color="-10918"/>
               <font name="Comic Sans MS"/>
-              <foreground color="-6645094"/>
+              <foreground color="-14475229"/>
               <text value="Decrypt to File"/>
             </properties>
           </component>
@@ -103,6 +103,9 @@
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-10918"/>
+          <font name="Comic Sans MS"/>
+          <foreground color="-14475229"/>
           <label value="Credits"/>
           <rolloverIcon value="res/write.gif"/>
           <text value="Credits"/>

@@ -14,8 +14,7 @@ import static java.nio.file.StandardOpenOption.CREATE;
 
 public class Main {
 
-	public static String currentDateTime = new SimpleDateFormat("dd/MM/yyyy-hh:mm:ss a")
-			.format(new Date()) + " - ";
+	public static String currentDateTime;
 
 	public static String releaseNotes =
 			"""
@@ -48,6 +47,9 @@ public class Main {
 	public Main() {
 		input.requestFocus();
 		output.setEditable(false);
+
+		currentDateTime = new SimpleDateFormat("dd/MM/yyyy-hh:mm:ss a")
+				.format(new Date()) + "\n";
 
 		textEncryption.addActionListener(e -> {
 			if (!Objects.equals(input.getText(), ""))
