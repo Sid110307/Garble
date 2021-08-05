@@ -1,3 +1,5 @@
+![Garble](src/logo.png)
+
 > To run, Type the following code in your terminal:
 >
 > ```powershell
