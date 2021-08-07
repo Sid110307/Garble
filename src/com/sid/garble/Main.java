@@ -14,6 +14,7 @@ import java.util.Objects;
 public class Main {
 	public static String currentDateTime;
 	public static String releaseNotes = """
+				v0.9   - Added Encryption and Decryption from files.
 				v0.8   - Redesigned GUI and modified credits screen.
 				v0.7   - Date and Time for Encrypted/Decrypted data.
 				v0.6   - File appending instead of replacing data.
@@ -31,6 +32,7 @@ public class Main {
 				v0.0.2 - Simple text and number encryption with text replacing.
 				v0.0.1 - Initial Alpha Release of Garble.
 			""";
+
 	public JPanel root;
 	public JTextArea output;
 	public JTextField input;
@@ -39,7 +41,10 @@ public class Main {
 	public JButton fileEncryption;
 	public JButton fileDecryption;
 	public JButton credits;
-	private JButton fork;
+	public JButton fork;
+	public JButton fromFileEncryption;
+	public JButton fromFileDecryption;
+
 
 	public Main() {
 		input.requestFocus();
@@ -47,21 +52,26 @@ public class Main {
 		currentDateTime = new SimpleDateFormat("dd/MM/yyyy-hh:mm:ss a").format(new Date()) + "\n";
 		textEncryption.addActionListener(e -> {
 			if (!Objects.equals(input.getText(), "")) Encrypt.TextEncryption(input, output);
-			else JOptionPane.showMessageDialog(null, "Please enter text in the input field.");
+			else JOptionPane.showMessageDialog(null, "Please enter text in the input field.",
+					"Error", JOptionPane.ERROR_MESSAGE);
 		});
 		textDecryption.addActionListener(e -> {
 			if (!Objects.equals(input.getText(), "")) Decrypt.TextDecryption(input, output);
-			else JOptionPane.showMessageDialog(null, "Please enter text in the input field.");
+			else JOptionPane.showMessageDialog(null, "Please enter text in the input field.",
+					"Error", JOptionPane.ERROR_MESSAGE);
 		});
 		fileEncryption.addActionListener(e -> {
 			if (!Objects.equals(input.getText(), "")) Encrypt.FileEncryption(input, output);
-			else JOptionPane.showMessageDialog(null, "Please enter text in the input field.");
+			else JOptionPane.showMessageDialog(null, "Please enter text in the input field.",
+					"Error", JOptionPane.ERROR_MESSAGE);
 		});
 		fileDecryption.addActionListener(e -> {
 			if (!Objects.equals(input.getText(), "")) Decrypt.FileDecryption(input, output);
-			else
-				JOptionPane.showMessageDialog(null, "Please enter text in the input field.", "Error", JOptionPane.ERROR_MESSAGE);
+			else JOptionPane.showMessageDialog(null, "Please enter text in the input field.",
+					"Error", JOptionPane.ERROR_MESSAGE);
 		});
+		fromFileEncryption.addActionListener(e -> Encrypt.FromFileEncryption(output));
+		fromFileDecryption.addActionListener(e -> Decrypt.FromFileDecryption(output));
 		fork.addActionListener(e -> {
 			try {
 				Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
@@ -71,7 +81,10 @@ public class Main {
 				ex.printStackTrace();
 			}
 		});
-		credits.addActionListener(e -> JOptionPane.showMessageDialog(null, "Garble is a tool developed by Siddharth P Bharadwaj to encrypt and decrypt text. You can also encrypt and decrypt to files.\nFor more information, contact me at siddharthpb2007@gmail.com.\n\nRelease notes:\n" + releaseNotes + "\n\nLatest Version: v0.8", "About Garble", JOptionPane.INFORMATION_MESSAGE));
+		credits.addActionListener(e -> JOptionPane.showMessageDialog(null, "Garble is a " +
+				"tool developed by Siddharth P Bharadwaj to encrypt and decrypt text. You can also encrypt and " +
+				"decrypt to files.\nFor more information, contact me at siddharthpb2007@gmail.com.\n\nRelease " +
+				"notes:\n" + releaseNotes, "About Garble", JOptionPane.INFORMATION_MESSAGE));
 	}
 
 	public static void main(String[] args) {
@@ -86,7 +99,8 @@ public class Main {
 
 	public static void write(String fileName, String s) {
 		try {
-			Files.writeString(Path.of("./", fileName), s + System.lineSeparator(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+			Files.writeString(Path.of("./", fileName), s + System.lineSeparator(), StandardOpenOption.CREATE,
+					StandardOpenOption.APPEND);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

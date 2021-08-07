@@ -14,6 +14,8 @@
 
 ## Release notes:
 
+`v0.9` - Added Encryption and Decryption from files.
+
 `v0.8` - Redesigned GUI and modified credits screen. Released first GitHub pre-release.
 
 `v0.7` - Date and Time for Encrypted/Decrypted data.
