@@ -2,7 +2,6 @@ package com.sid.garble;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,6 +13,7 @@ import java.util.Objects;
 public class Main {
 	public static String currentDateTime;
 	public static String releaseNotes = """
+    			v0.95  - Changed look and feel.
 				v0.9   - Added Encryption and Decryption from files.
 				v0.8   - Redesigned GUI and modified credits screen.
 				v0.7   - Date and Time for Encrypted/Decrypted data.
@@ -44,7 +44,6 @@ public class Main {
 	public JButton fork;
 	public JButton fromFileEncryption;
 	public JButton fromFileDecryption;
-
 
 	public Main() {
 		input.requestFocus();
@@ -78,7 +77,9 @@ public class Main {
 				assert desktop != null;
 				desktop.browse(new URI("https://github.com/Sid110307/Garble.git"));
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Your desktop doesn't support opening " +
+								"web links.\nPlease open it manually: https://github.com/Sid110307/Garble.git",
+						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		});
 		credits.addActionListener(e -> JOptionPane.showMessageDialog(null, "Garble is a " +
@@ -95,13 +96,19 @@ public class Main {
 		main.setMinimumSize(new Dimension(400, 300));
 		main.pack();
 		main.setVisible(true);
+
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void write(String fileName, String s) {
 		try {
 			Files.writeString(Path.of("./", fileName), s + System.lineSeparator(), StandardOpenOption.CREATE,
 					StandardOpenOption.APPEND);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
