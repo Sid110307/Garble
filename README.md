@@ -14,6 +14,8 @@
 
 ## Release notes:
 
+`v0.95` - Changed look and feel.
+
 `v0.9` - Added Encryption and Decryption from files.
 
 `v0.8` - Redesigned GUI and modified credits screen. Released first GitHub pre-release.
