@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Main {
 	public static String currentDateTime;
 	public static String releaseNotes = """
-    			v0.95  - Changed look and feel.
+				v0.95  - Changed look and feel.
 				v0.9   - Added Encryption and Decryption from files.
 				v0.8   - Redesigned GUI and modified credits screen.
 				v0.7   - Date and Time for Encrypted/Decrypted data.
